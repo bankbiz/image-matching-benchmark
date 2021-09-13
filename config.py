@@ -259,7 +259,7 @@ arg.add_argument('--run', type=str, default='', help='')
 arg.add_argument('--bag_size', type=int, default=-1, help='')
 arg.add_argument('--bag_id', type=int, default=-1, help='')
 arg.add_argument('--task', type=str, default='', help='')
-for dataset in ['phototourism', 'pragueparks', 'googleurban']:
+for dataset in ['phototourism', 'pragueparks', 'googleurban', 'graffity']:
     for subset in ['val', 'test']:
         arg.add_argument('--scenes_{}_{}'.format(dataset, subset),
                          type=str,
@@ -522,11 +522,11 @@ def validate_method(method, is_challenge, datasets):
                         raise ValueError(
                             '[{}/stereo] custom match submission can only use cv2-8pt'
                             .format(dataset1)
-                        )                       
+                        )
 
                 # Threshold for RANSAC
                 if geom['method'].lower() in [
-                        'cv2-ransac-f', 'cv2-ransac-e', 
+                        'cv2-ransac-f', 'cv2-ransac-e',
                     'cv2-usacdef-f',
                     'cv2-usacmagsac-f',
                     'cv2-usacfast-f',
